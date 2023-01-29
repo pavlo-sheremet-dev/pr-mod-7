@@ -5,8 +5,6 @@ const extraActions = [addComment, fetchComments];
 
 const getActions = (type) => extraActions.map((action) => action[type]);
 
-console.log(getActions("pending"));
-
 const initialState = {
   items: [],
   isLoading: false,
@@ -40,17 +38,8 @@ export const commentsSlice = createSlice({
         state.items.push(action.payload);
       })
 
-      .addMatcher(
-        isAnyOf(fetchComments.pending, addComment.pending),
-        handlePending
-      )
-      .addMatcher(
-        isAnyOf(fetchComments.fulfilled, addComment.fulfilled),
-        handleFullFiled
-      )
-      .addMatcher(
-        isAnyOf(fetchComments.rejected, addComment.rejected),
-        handleRejected
-      );
+      .addMatcher(isAnyOf(...getActions("pending")), handlePending)
+      .addMatcher(isAnyOf(...getActions("fulfilled")), handleFullFiled)
+      .addMatcher(isAnyOf(...getActions("rejected")), handleRejected);
   },
 });
