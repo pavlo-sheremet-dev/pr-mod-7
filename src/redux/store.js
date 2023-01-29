@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import filterSlice from "./filterSlice";
-import { commentApi } from "./commentApi";
-import { commentsSlice } from "./commentSlice";
+// import { commentApi } from "./commentApi";
+import { commentsSlice } from "./comments/commentSlice";
 
 export const store = configureStore({
   reducer: {

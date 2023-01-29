@@ -3,7 +3,7 @@ import {
   selectComments,
   selectError,
   selectIsLoading,
-} from "../redux/selectors";
+} from "../redux/comments/selectors";
 
 export const useComments = function () {
   const comments = useSelector(selectComments);

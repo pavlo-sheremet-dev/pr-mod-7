@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { Comments, Hero, Loader, Section } from "../components";
 import { useComments } from "../hooks/useComments";
-import { fetchComments } from "../redux/operations/operations";
+import { fetchComments } from "../redux/comments/operations";
 
 export const Home = () => {
   const { error, isLoading } = useComments();

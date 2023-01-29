@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { BiMailSend } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { addComment } from "../../redux/operations/operations";
+import { addComment } from "../../redux/comments/operations";
 import styles from "./Form.module.css";
 
 export const Form = () => {
