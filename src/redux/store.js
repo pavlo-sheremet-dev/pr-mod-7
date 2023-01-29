@@ -1,14 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit';
-import filterSlice from './filterSlice';
-import { commentApi } from './commentApi';
+import { configureStore } from "@reduxjs/toolkit";
+import filterSlice from "./filterSlice";
+import { commentApi } from "./commentApi";
+import { commentsSlice } from "./commentSlice";
 
 export const store = configureStore({
   reducer: {
     filter: filterSlice,
-    [commentApi.reducerPath]: commentApi.reducer,
+    [commentsSlice.name]: commentsSlice.reducer,
+    // [commentApi.reducerPath]: commentApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => [
-    ...getDefaultMiddleware(),
-    commentApi.middleware,
-  ],
+  // middleware: (getDefaultMiddleware) => [
+  //   ...getDefaultMiddleware(),
+  //   commentApi.middleware,
+  // ],
 });
