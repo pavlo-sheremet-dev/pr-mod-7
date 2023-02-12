@@ -1,16 +1,20 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Button.module.css';
+import { useUpdCommentMutation } from '../../redux/commentApi';
 
 export const Button = ({ children, counter, role = 'thumbsUp', id }) => {
+  const [isVote, setIsVote] = useState(false);
   const variants = {
     [styles.thumbsUp]: role === 'thumbsUp',
     [styles.thumbsDown]: role === 'thumbsDown',
   };
 
-  const onBtnHandleClick = () => {
-    console.log('click');
+  const [updComment] = useUpdCommentMutation()
+  const onBtnHandleClick = async () => {
+    await updComment({ id, [role]: counter + (isVote ? -1 : 1) }).unwrap()
+    setIsVote((p) => !p);
   };
 
   return (

@@ -5,6 +5,7 @@ import { TiThumbsUp, TiThumbsDown } from 'react-icons/ti';
 import { formatDateToNow } from '../../helpers/formatDateToNow';
 import { Button } from '../Button/Button';
 
+
 export const Comment = ({
   createdAt,
   content,
